@@ -1,12 +1,18 @@
 # Assignment 2
 ## Running
-To run the backward chaining algorithm ensure that you have one command line argument that is the input file with a set of the rules.
-> python3 app.py input.txt
+To run the backward chaining algorithm, ensure that you have one command line argument.
+That argument should be an input file. In the example below, it is 'input.txt' 
+In your argument/input file, there should be a list of rules for your program to run.
 
-The program will then ask for you to input a query and then tell you whether or not it is a result of logical consequence of the set of rules. After the query is done it will ask for another where it will do the same thing.
+Commandline: 
+    >>> python3 app.py input.txt
 
-## Exiting
-To exit the program simply type `exit` when you are asked to type a query.
+The program will then ask for you to input a query.
+It will then tell you whether or not it is a result of logical consequence of the set of rules. 
+After the query is done it will ask for another query to perform the same task. 
+
+## Exiting the program
+To exit the program, type `exit` instead of another query. 
 
 e.g. 
 ```
@@ -28,6 +34,6 @@ solve(goals):
 ```
 
 ## Limitations
-If there is a rule such as `p ∧ q ⇒ p` and the fact `q` then algorithm will end up going into a cycle causing a stack overflow if you try to give the query `p`. 
+If there is a rule such as `p ∧ q ⇒ p` and you also have the fact `q` , then algorithm will end up going into a infinite loop.  This will cause a stack overflow if you try to give the query `p`. 
 
 Another example where a cycle can occur is if you give the rules `p ⇒ q`, `q ⇒ p` and give the program the queries `q` or `p` because the algorithm will continuously be looking for `p` then `q` and `q` then `p`.
